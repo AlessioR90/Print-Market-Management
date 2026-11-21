@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="it">
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║           PRINT3D COST STUDIO — Versione Free                   ║
+║                                                                  ║
+║  © 2026 Alessio — Tutti i diritti riservati          ║
+║                                                                  ║
+║  Data di creazione: 21/11/2026                               ║
+║  Opera dell'ingegno tutelata ai sensi della Legge 633/1941      ║
+║  sul diritto d'autore (Italia) e delle normative internazionali  ║
+║  sul copyright (Convenzione di Berna).                           ║
+║                                                                  ║
+║  È VIETATO:                                                      ║
+║  · Copiare, modificare o ridistribuire questo software           ║
+║  · Rimuovere o alterare questo avviso di copyright               ║
+║  · Utilizzare il codice per scopi commerciali senza autorizzazione║
+║  · Creare opere derivate senza consenso scritto dell'autore      ║
+║                                                                  ║
+║  Uso consentito: test e valutazione personale del prodotto.      ║
+║  Per licenze commerciali: contattare l'autore.                   ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+<head>
+<meta charset="UTF-8">
+  <meta name="copyright" content="© 2026 Alessio. Tutti i diritti riservati.">
+  <meta name="author" content="Alessio">
+  <meta name="license" content="Proprietario - uso personale di valutazione">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Print3D Cost — Free</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');:root{--bg:#0f1117;--surface:#181b25;--border:#2a2f45;--accent:#7eb8f7;--accent2:#a78bfa;--success:#4ade9e;--warn:#fbbf24;--danger:#f87171;--text:#ffffff;--muted:#9ba3c0;--input-bg:#252a3d;--shadow:0 4px 24px rgba(0,0,0,.45);--r:12px;--r-sm:7px;--font:'Inter',system-ui,sans-serif}@media (prefers-color-scheme:light){:root{--bg:#f0f2f8;--surface:#ffffff;--border:#d4d9ee;--text:#1a1d2e;--muted:#5a6080;--input-bg:#eceef7;--shadow:0 4px 20px rgba(91,141,238,.12)}}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:60px}.header{background:linear-gradient(135deg,#1a1f35,#1e2a4a 50%,#1a2235);border-bottom:1px solid var(--border);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:12px}.brand-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:20px}.brand-name{font-size:18px;font-weight:700;color:#fff;letter-spacing:-.3px}.brand-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(126,184,247,.2);color:var(--accent);border:1px solid rgba(126,184,247,.35);letter-spacing:.5px}.header-right{display:flex;align-items:center;gap:8px}.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--r-sm);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .18s;font-family:var(--font);text-decoration:none}.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}.btn-primary:hover{opacity:.88;transform:translateY(-1px)}.btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.15)}.btn-sm{padding:6px 13px;font-size:12px}.btn-success{background:linear-gradient(135deg,#2bbf85,#4ade9e);color:#fff}.card .btn-ghost,.modal .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}.card .btn-ghost:hover,.modal .btn-ghost:hover{background:var(--input-bg)}.container{max-width:900px;margin:0 auto;padding:28px 20px 0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}@media(max-width:640px){.grid-2,.grid-3{grid-template-columns:1fr}}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--shadow);margin-bottom:18px}.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:10px}.section-label{display:flex;align-items:center;gap:10px}.section-num{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}.section-title{font-size:14px;font-weight:700}.section-sub{font-size:11px;color:var(--muted);margin-top:1px}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}.row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}.row-1{margin-bottom:14px}@media(max-width:600px){.row,.row-3{grid-template-columns:1fr}}label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}input[type="text"],input[type="number"],input[type="email"],select,textarea{width:100%;background:var(--input-bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px 12px;font-size:14px;color:var(--text);font-family:var(--font);outline:none;transition:border-color .15s,box-shadow .15s}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(126,184,247,.18)}textarea{resize:vertical;min-height:80px;line-height:1.5}.ig{position:relative}.ig input{padding-right:44px}.ig-suf{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--muted);pointer-events:none}.divider{border:none;border-top:1px solid var(--border);margin:14px 0}.pib{background:var(--input-bg);border-radius:var(--r-sm);padding:10px 14px;display:none;gap:20px;flex-wrap:wrap;margin-top:10px}.pib.show{display:flex}.pib-item .pib-label{font-size:10px;color:var(--muted);margin-bottom:2px}.pib-item .pib-val{font-size:14px;font-weight:700}.summary{background:linear-gradient(135deg,#151929,#1a2140);border:1px solid rgba(126,184,247,.35);border-radius:var(--r);padding:26px;margin-top:20px;box-shadow:0 8px 40px rgba(126,184,247,.12)}.sum-title{font-size:11px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;display:flex;align-items:center;gap:8px}.sum-rows{display:grid;gap:9px}.sum-row{display:flex;align-items:center;justify-content:space-between;font-size:13px;gap:10px}.sum-row.sep{border-top:1px solid rgba(255,255,255,.15);padding-top:10px;margin-top:2px;font-size:14px;font-weight:700}.sum-row.final{justify-content:flex-end;font-size:28px;font-weight:800;color:#fff;margin-top:6px;letter-spacing:-.5px;text-shadow:0 2px 12px rgba(126,184,247,.35)}.sl{color:rgba(255,255,255,.58);font-weight:400}.sv{font-weight:600;color:#fff;font-variant-numeric:tabular-nums}.sv.g{color:#6ee7b7}.sv.a{color:#a5ccfa}.sv.w{color:#fcd34d}.sum-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:18px}.hist-item{background:var(--input-bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}.hist-name{font-size:13px;font-weight:700}.hist-detail{font-size:11px;color:var(--muted);margin-top:2px}.hist-price{font-size:17px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}.hist-btns{display:flex;gap:6px}.del-btn{background:none;border:none;color:var(--danger);cursor:pointer;font-size:15px;padding:3px 6px;border-radius:4px;transition:background .15s}.del-btn:hover{background:rgba(248,113,113,.12)}.empty{text-align:center;padding:36px 20px;color:var(--muted);font-size:13px}.empty-icon{font-size:36px;margin-bottom:10px}.quota{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--input-bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:10px 14px;font-size:12px;color:var(--muted);margin-bottom:14px;flex-wrap:wrap}.quota-bar{flex:1;min-width:120px;height:5px;background:var(--border);border-radius:3px;overflow:hidden}.quota-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}.feedback-wrap{background:linear-gradient(135deg,rgba(126,184,247,.07),rgba(167,139,250,.07));border:1px solid rgba(126,184,247,.2);border-radius:var(--r);padding:22px;margin-top:18px}.feedback-title{font-size:14px;font-weight:700;margin-bottom:4px}.feedback-sub{font-size:12px;color:var(--muted);margin-bottom:16px}.stars{display:flex;gap:6px;margin-bottom:14px}.star{font-size:24px;cursor:pointer;opacity:.35;transition:opacity .15s,transform .15s}.star.on{opacity:1}.star:hover{transform:scale(1.2)}.tag-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}.tag{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .15s;background:var(--input-bg)}.tag.sel{background:rgba(126,184,247,.15);border-color:var(--accent);color:var(--accent)}.feedback-sent{text-align:center;padding:24px;display:none}.feedback-sent .fs-icon{font-size:36px;margin-bottom:10px}.feedback-sent p{font-size:13px;color:var(--muted)}.nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 28px;display:flex;gap:2px}.nav-tab{padding:13px 18px;font-size:13px;font-weight:600;color:rgba(255,255,255,.5);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s;font-family:var(--font);display:flex;align-items:center;gap:7px}.nav-tab.active{color:#fff;border-bottom-color:var(--accent)}.nav-tab:hover:not(.active){color:rgba(255,255,255,.85)}.tab-page{display:none}.tab-page.active{display:block}.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(4px)}.modal-bg.open{display:flex}.modal{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.5)}.modal-title{font-size:17px;font-weight:700;margin-bottom:6px}.modal-sub{font-size:12px;color:var(--muted);margin-bottom:20px}.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:20px}.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700}.badge-blue{background:rgba(126,184,247,.15);color:var(--accent)}.mt-10{margin-top:10px}.mt-16{margin-top:16px}.flex{display:flex}.gap-8{gap:8px}.items-center{align-items:center}.justify-between{justify-content:space-between}.text-sm{font-size:12px}.text-muted{color:var(--muted)}.full{width:100%}@keyframes popIn{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}.summary{animation:popIn .28s ease both}@media print{.header,.nav,.btn,.del-btn,.feedback-wrap{display:none !important}.tab-page{display:block !important}.summary{background:#fff !important;color:#000 !important;border:1px solid #ccc !important}}</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">
+    <div class="brand-icon">🖨</div>
+    <div>
+      <div class="brand-name">Print3D Cost <span class="brand-tag">FREE</span></div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">Calcolatore costi stampa 3D</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <button class="btn btn-ghost btn-sm" onclick="_rF()">↺ Reset</button>
+    <button class="btn btn-primary btn-sm" onclick="_cC()">⚡ Calcola</button>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-tab active" onclick="_sT('calcolo',this)">🖨 Calcolo</button>
+  <button class="nav-tab" onclick="_sT('storico',this)">📋 Preventivi</button>
+  <button class="nav-tab" onclick="_sT('feedback',this)">💬 Feedback</button>
+</nav>
+
+<!-- ═══ TAB CALCOLO ═══ -->
+<div id="tab-calcolo" class="tab-page active">
+<div class="container">
+
+  <!-- 1. STAMPANTE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="section-label">
+        <div class="section-num">1</div>
+        <div>
+          <div class="section-title">Stampante & Materiale</div>
+          <div class="section-sub">Seleziona dal catalogo o inserisci manualmente</div>
+        </div>
+      </div>
+      <span class="badge badge-blue">Catalogo 2024-25</span>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Marca stampante</label>
+        <select id="brand" onchange="_uM()">
+          <option value="">— Seleziona marca —</option>
+          <option value="bambulab">Bambu Lab</option>
+          <option value="creality">Creality</option>
+          <option value="elegoo">Elegoo</option>
+          <option value="anycubic">Anycubic</option>
+          <option value="prusa">Prusa</option>
+          <option value="flashforge">Flashforge</option>
+          <option value="qidi">QIDI</option>
+          <option value="altra">Altra / Personalizzata</option>
+        </select>
+      </div>
+      <div>
+        <label>Modello</label>
+        <select id="model" onchange="_uPI()">
+          <option value="">— Prima seleziona la marca —</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pib" id="pib">
+      <div class="pib-item"><div class="pib-label">Prezzo listino</div><div class="pib-val" id="pib-price">—</div></div>
+      <div class="pib-item"><div class="pib-label">Consumo medio</div><div class="pib-val" id="pib-watt">—</div></div>
+      <div class="pib-item"><div class="pib-label">Tipo</div><div class="pib-val" id="pib-type">—</div></div>
+    </div>
+
+    <div class="row mt-10">
+      <div>
+        <label>Prezzo stampante (€) — override</label>
+        <div class="ig"><input type="number" id="printerPrice" value="0" min="0" step="10"><span class="ig-suf">€</span></div>
+      </div>
+      <div>
+        <label>Consumo medio (kW)</label>
+        <div class="ig"><input type="number" id="avgWatt" value="0.200" min="0.01" step="0.01"><span class="ig-suf">kW</span></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row">
+      <div>
+        <label>Marca filamento</label>
+        <select id="filBrand" onchange="_uFP()">
+          <option value="">— Seleziona —</option>
+          <option value="esun">eSUN</option>
+          <option value="bambulab_fil">Bambu Lab</option>
+          <option value="creality_fil">Creality</option>
+          <option value="elegoo_fil">Elegoo</option>
+          <option value="anycubic_fil">Anycubic</option>
+          <option value="polymaker">Polymaker</option>
+          <option value="hatchbox">Hatchbox</option>
+          <option value="altra_fil">Altra</option>
+        </select>
+      </div>
+      <div>
+        <label>Tipo filamento</label>
+        <select id="filType" onchange="_uFP()">
+          <option value="PLA">PLA</option>
+          <option value="PLA_SILK">PLA Silk</option>
+          <option value="PETG">PETG</option>
+          <option value="ABS">ABS</option>
+          <option value="ASA">ASA</option>
+          <option value="TPU">TPU</option>
+          <option value="PA">PA (Nylon)</option>
+          <option value="PC">Policarbonato</option>
+          <option value="RESIN">Resina SLA/MSLA</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Costo filamento (€/kg)</label>
+        <div class="ig"><input type="number" id="matCost" value="20.00" min="0.1" step="0.5" oninput="_cC()"><span class="ig-suf">€/kg</span></div>
+      </div>
+      <div>
+        <label>Grammi utilizzati</label>
+        <div class="ig"><input type="number" id="grams" value="150" min="1" step="1" oninput="_cC()"><span class="ig-suf">g</span></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Scarto (%)</label>
+        <div class="ig"><input type="number" id="waste" value="5" min="0" max="50" step="0.5" oninput="_cC()"><span class="ig-suf">%</span></div>
+      </div>
+      <div>
+        <label>Stampe fallite — margine sicurezza (%)</label>
+        <div class="ig"><input type="number" id="failMargin" value="10" min="0" max="50" step="1" oninput="_cC()"><span class="ig-suf">%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. ENERGIA & USURA -->
+  <div class="card">
+    <div class="card-header">
+      <div class="section-label">
+        <div class="section-num">2</div>
+        <div>
+          <div class="section-title">Energia & Usura macchina</div>
+          <div class="section-sub">Consumi elettrici e deprezzamento</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Costo energia (€/kWh)</label>
+        <div class="ig"><input type="number" id="energyCost" value="0.25" min="0.01" step="0.01" oninput="_cC()"><span class="ig-suf">€/kWh</span></div>
+      </div>
+      <div>
+        <label>Tempo di stampa</label>
+        <div style="display:flex;gap:8px">
+          <div class="ig" style="flex:1"><input type="number" id="printHours" value="5" min="0" step="1" oninput="_cC()"><span class="ig-suf">h</span></div>
+          <div class="ig" style="flex:1"><input type="number" id="printMins" value="30" min="0" max="59" step="1" oninput="_cC()"><span class="ig-suf">m</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Usura macchina (% prezzo / ora)</label>
+        <div class="ig"><input type="number" id="wearRate" value="0.004" min="0.001" step="0.001" oninput="_cC()"><span class="ig-suf">%</span></div>
+      </div>
+      <div>
+        <label>Costo manodopera (€/h)</label>
+        <div class="ig"><input type="number" id="laborRate" value="0" min="0" step="0.5" oninput="_cC()"><span class="ig-suf">€/h</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. MARGINI -->
+  <div class="card">
+    <div class="card-header">
+      <div class="section-label">
+        <div class="section-num">3</div>
+        <div>
+          <div class="section-title">Margini & Prezzo finale</div>
+          <div class="section-sub">Markup e IVA</div>
+        </div>
+      </div>
+    </div>
+    <div class="row-3">
+      <div>
+        <label>Markup (%)</label>
+        <div class="ig"><input type="number" id="markup" value="50" min="0" max="500" step="5" oninput="_cC()"><span class="ig-suf">%</span></div>
+      </div>
+      <div>
+        <label>IVA (%)</label>
+        <select id="vat" onchange="_cC()">
+          <option value="22">22% — Ordinaria</option>
+          <option value="10">10% — Ridotta</option>
+          <option value="4">4% — Super ridotta</option>
+          <option value="0">0% — Esente</option>
+        </select>
+      </div>
+      <div>
+        <label>Modalità IVA</label>
+        <select id="vatMode" onchange="_cC()">
+          <option value="exclusive">Aggiunta al netto</option>
+          <option value="inclusive">Inclusa nel prezzo</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIEPILOGO -->
+  <div class="summary">
+    <div class="sum-title">📊 Riepilogo costi</div>
+    <div class="sum-rows">
+      <div class="sum-row"><span class="sl">Materiale (con scarto)</span><span class="sv" id="s-mat">—</span></div>
+      <div class="sum-row"><span class="sl">Energia elettrica</span><span class="sv" id="s-energy">—</span></div>
+      <div class="sum-row"><span class="sl">Usura macchina</span><span class="sv" id="s-wear">—</span></div>
+      <div class="sum-row"><span class="sl">Manodopera</span><span class="sv" id="s-labor">—</span></div>
+      <div class="sum-row sep"><span class="sl">Subtotale costi</span><span class="sv" id="s-sub">—</span></div>
+      <div class="sum-row"><span class="sl">Margine stampe fallite</span><span class="sv w" id="s-fail">—</span></div>
+      <div class="sum-row"><span class="sl">Costo totale</span><span class="sv" id="s-total">—</span></div>
+      <div class="sum-row"><span class="sl">Markup</span><span class="sv a" id="s-markup">—</span></div>
+      <div class="sum-row"><span class="sl">Prezzo netto</span><span class="sv g" id="s-net">—</span></div>
+      <div class="sum-row"><span class="sl">IVA</span><span class="sv" id="s-vat">—</span></div>
+      <div class="sum-row final" id="s-final">— €</div>
+    </div>
+    <div class="sum-actions">
+      <button class="btn btn-ghost btn-sm" onclick="_cR()">📋 Copia</button>
+      <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨 Stampa</button>
+      <button class="btn btn-success btn-sm" onclick="_oSM()">💾 Salva preventivo</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══ TAB STORICO ═══ -->
+<div id="tab-storico" class="tab-page">
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="section-label">
+        <div class="section-num">📋</div>
+        <div>
+          <div class="section-title">Preventivi salvati</div>
+          <div class="section-sub">Massimo 3 nella versione free</div>
+        </div>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="_clH()">🗑 Svuota</button>
+    </div>
+
+    <!-- quota bar -->
+    <div class="quota" id="quotaBar">
+      <span id="quotaText">0 / 3 preventivi usati</span>
+      <div class="quota-bar"><div class="quota-fill" id="quotaFill" style="width:0%"></div></div>
+    </div>
+
+    <div id="historyList">
+      <div class="empty"><div class="empty-icon">📂</div>Nessun preventivo salvato.<br>Calcola e clicca <strong>Salva preventivo</strong>.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ TAB FEEDBACK ═══ -->
+<div id="tab-feedback" class="tab-page">
+<div class="container">
+  <div class="feedback-wrap">
+    <div class="feedback-title">💬 Lascia il tuo feedback</div>
+    <div class="feedback-sub">Aiutaci a migliorare — richiede meno di un minuto. Nessun dato personale obbligatorio.</div>
+
+    <div id="feedbackForm">
+      <label style="margin-bottom:8px">Com'è la tua esperienza?</label>
+      <div class="stars" id="stars">
+        <span class="star" onclick="_stS(1)">★</span>
+        <span class="star" onclick="_stS(2)">★</span>
+        <span class="star" onclick="_stS(3)">★</span>
+        <span class="star" onclick="_stS(4)">★</span>
+        <span class="star" onclick="_stS(5)">★</span>
+      </div>
+
+      <label style="margin-bottom:8px">Cosa usi di più? <span style="color:var(--muted);font-weight:400">(opzionale)</span></label>
+      <div class="tag-row" id="tagRow">
+        <div class="tag" onclick="_tT(this)">Calcolo costi</div>
+        <div class="tag" onclick="_tT(this)">Catalogo stampanti</div>
+        <div class="tag" onclick="_tT(this)">Catalogo filamenti</div>
+        <div class="tag" onclick="_tT(this)">Salvataggio preventivi</div>
+        <div class="tag" onclick="_tT(this)">Import G-code</div>
+        <div class="tag" onclick="_tT(this)">Uso professionale</div>
+        <div class="tag" onclick="_tT(this)">Uso hobbistico</div>
+      </div>
+
+      <div class="row-1">
+        <label>Cosa miglioreresti o vorresti aggiungere? <span style="color:var(--muted);font-weight:400">(opzionale)</span></label>
+        <textarea id="feedbackNote" placeholder="Es. vorrei poter salvare più preventivi, aggiungere componenti personalizzati..."></textarea>
+      </div>
+
+      <div class="row-1">
+        <label>Email <span style="color:var(--muted);font-weight:400">(solo se vuoi essere ricontattato)</span></label>
+        <input type="email" id="feedbackEmail" placeholder="tua@email.it">
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;margin-top:4px">
+        <button class="btn btn-primary" onclick="_sFB()">✉️ Invia feedback</button>
+      </div>
+    </div>
+
+    <div class="feedback-sent" id="feedbackSent">
+      <div class="fs-icon">🙏</div>
+      <strong style="font-size:16px">Grazie mille!</strong>
+      <p style="margin-top:8px">Il tuo feedback è stato salvato.<br>Ci aiuta tantissimo a migliorare il programma.</p>
+      <button class="btn btn-ghost btn-sm" style="margin-top:16px" onclick="_rFB()">↺ Invia un altro</button>
+    </div>
+  </div>
+
+  <!-- storico feedback locali -->
+  <div class="card mt-10" id="myFeedbackCard" style="display:none">
+    <div class="card-header">
+      <div class="section-label">
+        <div class="section-num">📝</div>
+        <div><div class="section-title">I tuoi feedback precedenti</div></div>
+      </div>
+    </div>
+    <div id="myFeedbackList"></div>
+  </div>
+
+</div>
+</div>
+
+<!-- MODAL SALVA -->
+<div class="modal-bg" id="saveModal">
+  <div class="modal">
+    <div class="modal-title">💾 Salva preventivo</div>
+    <div class="modal-sub">Puoi salvare fino a 3 preventivi nella versione free.</div>
+    <div class="row-1">
+      <label>Nome preventivo</label>
+      <input type="text" id="sq-name" placeholder="Es. Portabottiglie 150g PLA">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost btn-sm" onclick="_cSM()">Annulla</button>
+      <button class="btn btn-primary btn-sm" onclick="_cS()">✔ Salva</button>
+    </div>
+  </div>
+</div>
+
+<script>(function(){
+var _dd=false;
+document.addEventListener('contextmenu',function(e){e.preventDefault();});
+document.addEventListener('keydown',function(e){
+  if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&['I','J','C','U'].includes(e.key))||(e.ctrlKey&&e.key==='U')){
+    e.preventDefault();_dd=true;
+  }
+});
+setInterval(function(){
+  var s=new Date();debugger;var d=new Date()-s;
+  if(d>100&&!_dd){document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#0f1117;color:#7eb8f7;flex-direction:column;gap:16px"><div style="font-size:48px">🔒</div><div style="font-size:18px;font-weight:700">Accesso non consentito</div></div>';}
+},1000);
+})();
+const _P3Dpr={
+bambulab: [
+{name:'A1 Mini',price:219,watt:0.150,type:'Cartesian FDM'},
+{name:'A1',price:319,watt:0.200,type:'Cartesian FDM'},
+{name:'P1P',price:399,watt:0.280,type:'CoreXY FDM'},
+{name:'P1S',price:499,watt:0.300,type:'CoreXY closed'},
+{name:'P2S',price:549,watt:0.300,type:'CoreXY closed'},
+{name:'X1 Carbon',price:999,watt:0.350,type:'CoreXY closed'},
+{name:'X2D',price:649,watt:0.350,type:'CoreXY closed'},
+{name:'H2D',price:1899,watt:0.500,type:'Dual-nozzle FDM'},
+],
+creality: [
+{name:'Ender 3 V3 SE',price:189,watt:0.150,type:'Cartesian FDM'},
+{name:'Ender 3 V3',price:299,watt:0.200,type:'CoreXY FDM'},
+{name:'K1',price:399,watt:0.300,type:'CoreXY closed'},
+{name:'K1C',price:449,watt:0.320,type:'CoreXY closed'},
+{name:'K1 Max',price:549,watt:0.400,type:'CoreXY large'},
+{name:'K2 Pro Combo',price:849,watt:0.450,type:'CoreXY multi'},
+{name:'Halot One Plus',price:249,watt:0.100,type:'MSLA resin'},
+],
+elegoo: [
+{name:'Neptune 4',price:199,watt:0.150,type:'Cartesian FDM'},
+{name:'Neptune 4 Pro',price:270,watt:0.180,type:'Cartesian FDM'},
+{name:'Neptune 4 Max',price:469,watt:0.280,type:'Cartesian large'},
+{name:'Centauri Carbon',price:299,watt:0.250,type:'CoreXY FDM'},
+{name:'Mars 5',price:184,watt:0.085,type:'MSLA resin'},
+{name:'Saturn 4 Ultra',price:399,watt:0.120,type:'MSLA resin large'},
+{name:'Saturn 4 16K',price:499,watt:0.140,type:'MSLA resin 16K'},
+],
+anycubic: [
+{name:'Kobra 2 Neo',price:179,watt:0.130,type:'Cartesian FDM'},
+{name:'Kobra 2 Pro',price:259,watt:0.180,type:'CoreXY FDM'},
+{name:'Kobra 3 Combo',price:449,watt:0.270,type:'CoreXY multi'},
+{name:'Kobra S1 Combo',price:549,watt:0.320,type:'CoreXY closed'},
+{name:'Kobra S1 Max',price:699,watt:0.400,type:'CoreXY large'},
+{name:'Photon Mono 4 Ultra',price:349,watt:0.100,type:'MSLA resin'},
+{name:'Photon Mono M7 Max',price:599,watt:0.160,type:'MSLA resin large'},
+],
+prusa: [
+{name:'Mini+',price:429,watt:0.090,type:'Cartesian FDM'},
+{name:'MK4',price:799,watt:0.200,type:'Cartesian FDM'},
+{name:'MK4S',price:849,watt:0.200,type:'Cartesian FDM'},
+{name:'XL',price:1299,watt:0.300,type:'CoreXY large'},
+{name:'SL1S Speed',price:999,watt:0.090,type:'MSLA resin'},
+],
+flashforge: [
+{name:'Adventurer 5M',price:329,watt:0.200,type:'CoreXY FDM'},
+{name:'Adventurer 5M Pro',price:449,watt:0.250,type:'CoreXY closed'},
+{name:'Creator 3 Pro',price:999,watt:0.350,type:'IDEX FDM'},
+],
+qidi: [
+{name:'Q1 Pro',price:399,watt:0.300,type:'CoreXY closed'},
+{name:'X-Max 3',price:649,watt:0.400,type:'CoreXY large'},
+{name:'X-CF Pro',price:1299,watt:0.450,type:'CoreXY HT'},
+],
+altra: [{name:'Personalizzata',price:0,watt:0,type:'—'}],
+};
+const _P3Dfl={
+esun:{PLA:19,PLA_SILK:24,PETG:22,ABS:20,ASA:24,TPU:28,PA:35,PC:40,RESIN:35},
+bambulab_fil:{PLA:25,PLA_SILK:30,PETG:28,ABS:28,ASA:30,TPU:35,PA:45,PC:50,RESIN:45},
+creality_fil:{PLA:17,PLA_SILK:22,PETG:20,ABS:18,ASA:22,TPU:25,PA:32,PC:38,RESIN:30},
+elegoo_fil:{PLA:18,PLA_SILK:23,PETG:21,ABS:19,ASA:23,TPU:26,PA:33,PC:38,RESIN:28},
+anycubic_fil:{PLA:17,PLA_SILK:22,PETG:20,ABS:19,ASA:23,TPU:26,PA:33,PC:38,RESIN:30},
+polymaker:{PLA:22,PLA_SILK:28,PETG:25,ABS:24,ASA:27,TPU:32,PA:42,PC:48,RESIN:40},
+hatchbox:{PLA:20,PLA_SILK:25,PETG:23,ABS:21,ASA:25,TPU:29,PA:36,PC:42,RESIN:35},
+altra_fil:{PLA:20,PLA_SILK:25,PETG:22,ABS:20,ASA:24,TPU:28,PA:35,PC:40,RESIN:35},
+};
+const $=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+function _lg(k){try{return JSON.parse(localStorage.getItem(k))||[];}catch(e){return[];}}
+function _ls(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function _uM(){
+const brand=$('brand').value,sel=$('model');
+sel.innerHTML='<option value="">— Seleziona modello —</option>';
+if(!brand)return;
+_P3Dpr[brand].forEach((p,i)=>{
+const o=document.createElement('option');
+o.value=i;o.textContent=p.name;sel.appendChild(o);
+});
+$('pib').classList.remove('show');
+}
+function _uPI(){
+const brand=$('brand').value,idx=$('model').value;
+if(!brand||idx===''){$('pib').classList.remove('show');return;}
+const p=_P3Dpr[brand][idx];
+$('pib-price').textContent=p.price>0 ? p.price.toLocaleString('it-IT')+' €' : 'da inserire';
+$('pib-watt').textContent=p.watt>0 ?(p.watt*1000).toFixed(0)+' W' : 'da inserire';
+$('pib-type').textContent=p.type;
+if(p.price>0)$('printerPrice').value=p.price;
+if(p.watt>0)$('avgWatt').value=p.watt;
+$('pib').classList.add('show');
+_cC();
+}
+function _uFP(){
+const brand=$('filBrand').value,type=$('filType').value;
+if(!brand||!_P3Dfl[brand])return;
+$('matCost').value=_P3Dfl[brand][type] ?? 20;
+_cC();
+}
+function _cC(){
+const matCost=parseFloat($('matCost').value)||0;
+const grams=parseFloat($('grams').value)||0;
+const waste=parseFloat($('waste').value)||0;
+const energy=parseFloat($('energyCost').value)||0;
+const watt=parseFloat($('avgWatt').value)||0;
+const hrs=(parseFloat($('printHours').value)||0)+(parseFloat($('printMins').value)||0)/60;
+const pprice=parseFloat($('printerPrice').value)||0;
+const wear=parseFloat($('wearRate').value)||0.004;
+const fail=parseFloat($('failMargin').value)||0;
+const labor=parseFloat($('laborRate').value)||0;
+const markup=parseFloat($('markup').value)||0;
+const vat=parseFloat($('vat').value)||0;
+const vatMode=$('vatMode').value;
+const matTotal=(grams*(1+waste/100)/1000)*matCost;
+const energyTotal=watt*hrs*energy;
+const wearTotal=pprice*(wear/100)*hrs;
+const laborTotal=labor*hrs;
+const sub=matTotal+energyTotal+wearTotal+laborTotal;
+const failAdd=sub*(fail/100);
+const totalCost=sub+failAdd;
+const markupAmt=totalCost*(markup/100);
+const net=totalCost+markupAmt;
+const vatAmt=vatMode==='exclusive' ? net*(vat/100): net*(vat/(100+vat));
+const final=vatMode==='exclusive' ? net+vatAmt : net;
+$('s-mat').textContent=fmt(matTotal);
+$('s-energy').textContent=fmt(energyTotal);
+$('s-wear').textContent=fmt(wearTotal);
+$('s-labor').textContent=fmt(laborTotal);
+$('s-sub').textContent=fmt(sub);
+$('s-fail').textContent=fmt(failAdd);
+$('s-total').textContent=fmt(totalCost);
+$('s-markup').textContent=fmt(markupAmt);
+$('s-net').textContent=fmt(net);
+$('s-vat').textContent=`${fmt(vatAmt)}(${vat}%)`;
+$('s-final').textContent=fmt(final);
+}
+function _rF(){
+if(!confirm('Azzerare tutti i campi?'))return;
+['brand','model','filBrand'].forEach(id=>$(id).value='');
+$('pib').classList.remove('show');
+$('printerPrice').value=0;$('avgWatt').value=0.200;
+$('matCost').value=20;$('grams').value=150;$('waste').value=5;
+$('energyCost').value=0.25;$('printHours').value=5;$('printMins').value=30;
+$('wearRate').value=0.004;$('failMargin').value=10;
+$('laborRate').value=0;$('markup').value=50;
+_cC();
+}
+function _cR(){
+const lines=[
+'PREVENTIVO STAMPA 3D — Print3D Cost(Free)',
+'─'.repeat(38),
+`Data: ${new Date().toLocaleDateString('it-IT')}`,
+'',
+`Materiale: ${$('s-mat').textContent}`,
+`Energia: ${$('s-energy').textContent}`,
+`Usura macchina: ${$('s-wear').textContent}`,
+`Manodopera: ${$('s-labor').textContent}`,
+`Subtotale: ${$('s-sub').textContent}`,
+`Margine sicurez.: ${$('s-fail').textContent}`,
+`Costo totale: ${$('s-total').textContent}`,
+`Markup: ${$('s-markup').textContent}`,
+`Prezzo netto: ${$('s-net').textContent}`,
+`IVA: ${$('s-vat').textContent}`,
+'─'.repeat(38),
+`PREZZO FINALE: ${$('s-final').textContent}`,
+].join('\n');
+navigator.clipboard.writeText(lines).then(()=>alert('✅ Preventivo copiato!'));
+}
+const _P3Dmq=3;
+function _oSM(){
+const list=_lg('p3d_free_quotes');
+if(list.length>=_P3Dmq){
+alert(`Hai raggiunto il limite di ${_P3Dmq}preventivi nella versione free.\nElimina uno per farne spazio.`);
+_sT('storico',document.querySelectorAll('.nav-tab')[1]);
+return;
+}
+$('sq-name').value='';
+$('saveModal').classList.add('open');
+}
+function _cSM(){$('saveModal').classList.remove('open');}
+function _cS(){
+const list=_lg('p3d_free_quotes');
+if(list.length>=_P3Dmq){_cSM();return;}
+const name=$('sq-name').value.trim()||'Preventivo '+new Date().toLocaleString('it-IT');
+const brand=$('brand').value;
+const model=$('model').options[$('model').selectedIndex]?.text||'—';
+list.unshift({
+id: Date.now(),name,date: new Date().toLocaleDateString('it-IT'),
+model: brand ? model : '—',
+grams: $('grams').value,filType: $('filType').value,
+hours: $('printHours').value+'h '+$('printMins').value+'m',
+final: $('s-final').textContent,
+net: $('s-net').textContent,
+total: $('s-total').textContent,
+});
+_ls('p3d_free_quotes',list);
+_cSM();
+_rH();
+_sT('storico',document.querySelectorAll('.nav-tab')[1]);
+}
+function _rH(){
+const list=_lg('p3d_free_quotes');
+_uQ(list.length);
+const el=$('historyList');
+if(!list.length){
+el.innerHTML='<div class="empty"><div class="empty-icon">📂</div>Nessun preventivo salvato.<br>Calcola e clicca<strong>Salva preventivo</strong>.</div>';
+return;
+}
+el.innerHTML=list.map((q,i)=>`
+<div class="hist-item">
+<div style="flex:1">
+<div class="hist-name">${q.name}</div>
+<div class="hist-detail">${q.date}· ${q.model}· ${q.grams}g ${q.filType}· ${q.hours}</div>
+<div class="hist-detail" style="margin-top:3px">Costo: ${q.total}· Netto: ${q.net}</div>
+</div>
+<div class="hist-price">${q.final}</div>
+<div class="hist-btns">
+<button class="btn btn-ghost btn-sm" onclick="_lQ(${i})">↩ Carica</button>
+<button class="del-btn" onclick="_dQ(${i})">✕</button>
+</div>
+</div>
+`).join('');
+}
+function _uQ(n){
+$('quotaText').textContent=`${n}/${_P3Dmq}preventivi usati`;
+$('quotaFill').style.width=(n/_P3Dmq*100)+'%';
+$('quotaFill').style.background=n>=_P3Dmq
+? 'linear-gradient(90deg,#f87171,#fbbf24)'
+: 'linear-gradient(90deg,var(--accent),var(--accent2))';
+}
+function _lQ(i){
+const q=_lg('p3d_free_quotes')[i];
+if(!q)return;
+$('grams').value=q.grams;
+$('filType').value=q.filType;
+_sT('calcolo',document.querySelectorAll('.nav-tab')[0]);
+setTimeout(_cC,80);
+}
+function _dQ(i){
+if(!confirm('Eliminare questo preventivo?'))return;
+const list=_lg('p3d_free_quotes');
+list.splice(i,1);
+_ls('p3d_free_quotes',list);
+_rH();
+}
+function _clH(){
+if(!confirm('Eliminare tutti i preventivi?'))return;
+_ls('p3d_free_quotes',[]);
+_rH();
+}
+function _sT(name,btn){
+document.querySelectorAll('.tab-page').forEach(el=>el.classList.remove('active'));
+document.querySelectorAll('.nav-tab').forEach(el=>el.classList.remove('active'));
+document.getElementById('tab-'+name).classList.add('active');
+if(btn)btn.classList.add('active');
+if(name==='storico')_rH();
+if(name==='feedback')_rMF();
+}
+let _ss=0;
+function _stS(n){
+_ss=n;
+document.querySelectorAll('.star').forEach((s,i)=>s.classList.toggle('on',i<n));
+}
+function _tT(el){el.classList.toggle('sel');}
+function _sFB(){
+if(!_ss){alert('Seleziona almeno una valutazione con le stelle ⭐');return;}
+const tags=[...document.querySelectorAll('.tag.sel')].map(t=>t.textContent);
+const note=$('feedbackNote').value.trim();
+const email=$('feedbackEmail').value.trim();
+const fb={
+id: Date.now(),
+date: new Date().toLocaleDateString('it-IT'),
+stars: _ss,
+tags,note,email
+};
+const all=_lg('p3d_free_feedbacks');
+all.unshift(fb);
+_ls('p3d_free_feedbacks',all);
+$('feedbackForm').style.display='none';
+$('feedbackSent').style.display='block';
+}
+function _rFB(){
+_ss=0;
+document.querySelectorAll('.star').forEach(s=>s.classList.remove('on'));
+document.querySelectorAll('.tag').forEach(t=>t.classList.remove('sel'));
+$('feedbackNote').value='';
+$('feedbackEmail').value='';
+$('feedbackForm').style.display='block';
+$('feedbackSent').style.display='none';
+}
+function _rMF(){
+const all=_lg('p3d_free_feedbacks');
+const card=$('myFeedbackCard');
+const list=$('myFeedbackList');
+if(!all.length){card.style.display='none';return;}
+card.style.display='block';
+list.innerHTML=all.map(f=>`
+<div style="padding:10px 0;border-bottom:1px solid var(--border);font-size:12px">
+<div style="display:flex;justify-content:space-between;margin-bottom:4px">
+<strong>${'★'.repeat(f.stars)}${'☆'.repeat(5-f.stars)}</strong>
+<span style="color:var(--muted)">${f.date}</span>
+</div>
+${f.tags.length ? '<div style="color:var(--muted);margin-bottom:3px">'+f.tags.join(' · ')+'</div>' : ''}
+${f.note ? '<div>'+f.note+'</div>' : ''}
+</div>
+`).join('');
+}
+_cC();
+_rH();</script>
+</body>
+</html>
