@@ -1,7 +1,11 @@
 [README (1).md](https://github.com/user-attachments/files/35216604/README.1.md)
 <div align="center">
+  <img src="assets/logo.png" alt="Print3D Cost Logo" width="140" />
+  <h1>Print3D Cost — Free</h1>
+  <p><strong>All-in-one 3D printing cost calculator and quote generator.</strong></p>
+  <!-- Inserisci qui i badge e i link della live demo -->
+</div>
 
-  <img src="assets/logo.png" alt="Print3D Cost Logo" width="120" height="120">
 
   # Print3D Cost — Free
   
