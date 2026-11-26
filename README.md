@@ -27,7 +27,7 @@
 
 ## 🎯 Why Print3D Cost?
 
-Pricing 3D prints accurately is tough. Hidden expenses like electricity, filament waste, failed prints, and hardware depreciation easily eat into your profits. **Print3D Cost** eliminates guesswork with a built-in 2024–25 hardware/filament catalog and a comprehensive financial breakdown—helping makers and small print farms set profitable prices and generate clean quotes directly from the browser.
+Pricing 3D prints accurately is tough. Hidden expenses like electricity, filament waste, failed prints, and hardware depreciation easily eat into your profits. **Print3D Cost** eliminates guesswork with a built-in 2026 hardware/filament catalog and a comprehensive financial breakdown—helping makers and small print farms set profitable prices and generate clean quotes directly from the browser.
 
 ## ✨ Key Features
 
